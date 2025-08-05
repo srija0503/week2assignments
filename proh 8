@@ -1,0 +1,24 @@
+class DynamicArray:
+    def __init__(self):
+        self.data = []
+
+    def append(self, value):
+        self.data.append(value)
+
+    def insert(self, index, value):
+        self.data.insert(index, value)
+
+    def remove(self, value):
+        self.data.remove(value)
+
+    def pop(self, index=-1):
+        return self.data.pop(index)
+
+    def display(self):
+        print(self.data)
+arr = DynamicArray()
+arr.append(10)
+arr.append(20)
+arr.insert(1, 15)
+arr.remove(10)
+arr.display()  

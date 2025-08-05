@@ -1,0 +1,35 @@
+def multiply_polynomials(poly1, poly2):
+    result = {}
+
+    for power1, coeff1 in poly1.items():
+        for power2, coeff2 in poly2.items():
+            power = power1 + power2
+            coeff = coeff1 * coeff2
+
+            if power in result:
+                result[power] += coeff
+            else:
+                result[power] = coeff
+
+    return result
+
+def print_polynomial(poly):
+    terms = []
+    for power in sorted(poly.keys(), reverse=True):
+        coeff = poly[power]
+        if coeff == 0:
+            continue
+        if power == 0:
+            terms.append(f"{coeff}")
+        elif power == 1:
+            terms.append(f"{coeff}x")
+        else:
+            terms.append(f"{coeff}x^{power}")
+    print(" + ".join(terms))
+poly1 = {2: 3, 1: 2, 0: 1} 
+poly2 = {1: 1, 0: 4}       
+
+result = multiply_polynomials(poly1, poly2)
+
+print("Resultant Polynomial after multiplication:")
+print_polynomial(result)

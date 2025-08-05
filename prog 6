@@ -1,0 +1,20 @@
+def add_polynomials(poly1, poly2):
+    result = {}
+    for power in poly1:
+        result[power] = poly1[power]
+    for power in poly2:
+        if power in result:
+            result[power] += poly2[power]
+        else:
+            result[power] = poly2[power]
+
+    return result
+poly1 = {2: 3, 1: 4, 0: 2}
+poly2 = {3: 5, 2: 2, 0: 1}
+
+sum_poly = add_polynomials(poly1, poly2)
+print("Resultant Polynomial:")
+for power in sorted(sum_poly.keys(), reverse=True):
+    coeff = sum_poly[power]
+    if coeff != 0:
+        print(f"{coeff}x^{power}", end=" + ")

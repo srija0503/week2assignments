@@ -1,0 +1,21 @@
+def is_identity(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    if rows != cols:
+        return False  
+
+    for i in range(rows):
+        for j in range(cols):
+            if i == j and matrix[i][j] != 1:
+                return False
+            elif i != j and matrix[i][j] != 0:
+                return False
+
+    return True
+mat1 = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+]
+print("Matrix 1 is identity:", is_identity(mat1)) 
